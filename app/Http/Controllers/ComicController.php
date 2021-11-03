@@ -37,6 +37,9 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $request->validate([
+            'title' => 'required|unique:comics|max:50'
+        ]);
 
         $newComic = new Comic();
         $newComic->fill($data);
@@ -88,8 +91,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }
