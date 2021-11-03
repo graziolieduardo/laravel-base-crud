@@ -22,7 +22,8 @@
                           <td>{{ $comic['series'] }}</td>
                           <td>{{ $comic['price'] }}</td>
                           <td>
-                            <a class="btn btn-warning" href="{{ route('comics.show', $comic['id']) }}" role="button">Details</a>
+                            <a class="btn btn-primary" href="{{ route('comics.show', $comic['id']) }}" role="button">Details</a>
+                            <a class="btn btn-warning" href="{{ route('comics.edit', $comic['id']) }}" role="button">Modify</a>
                           </td>
                         </tr>
                       @endforeach
